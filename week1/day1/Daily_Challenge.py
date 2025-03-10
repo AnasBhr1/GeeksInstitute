@@ -17,5 +17,3 @@ for i in range(len(word)):
         new_word += word[i]
 
 print(new_word)
-
-#Challenge 3 
