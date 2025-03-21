@@ -76,3 +76,5 @@ def show_restaurant_menu():
     print("\nRestaurant Menu:")
     for item in items:
         print(item)
+
+show_restaurant_menu()

@@ -1,11 +1,11 @@
 import psycopg2
-from menu_item import MenuItem
 
-# DB_NAME = "restaurant"
-# USERNAME = "postgres"
-# PASSWORD = "odd199600"
-# HOST = "localhost"
-# PORT = "5432"
+
+DB_NAME = "restaurant"
+USERNAME = "postgres"
+PASSWORD = "odd199600"
+HOST = "localhost"
+PORT = "5432"
 
 connection = psycopg2.connect("dbname=restaurant user=postgres password=odd199600")
 

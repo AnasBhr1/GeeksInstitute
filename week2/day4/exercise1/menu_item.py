@@ -1,14 +1,13 @@
 import psycopg2
-from menu_item import MenuItem
-from menu_manager import MenuManager
+
 
 DB_NAME = "restaurant"
-USER = "postgres"
+USERNAME = "postgres"
 PASSWORD = "odd199600"
 HOST = "localhost"
 PORT = "5432"
 
-connection = psycopg2.connect( dbname=DB_NAME, user=USER, password=PASSWORD)
+connection = psycopg2.connect( dbname=DB_NAME, user=USERNAME, password=PASSWORD)
 
 cursor = connection.cursor()
 
@@ -34,9 +33,9 @@ class MenuItem :
 
 item = MenuItem('Burger', 35)
 item.save()
-item.delete()
-item.update('Veggie Burger', 37)
-item2 = MenuManager.get_by_name('Beef Stew')
-print(item2)  
-items = MenuManager.all()
-print(items) 
+# item.delete()
+# item.update('Veggie Burger', 37)
+# item2 = MenuManager.get_by_name('Beef Stew')
+# print(item2)  
+# items = MenuManager.all()
+# print(items) 
