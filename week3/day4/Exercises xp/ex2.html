@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Handling</title>
+</head>
+<body>
+
+    <form id="user-form">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="firstname"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lastname"><br><br>
+        <input type="submit" value="Submit" id="submit">
+    </form> 
+
+    <ul class="usersAnswer"></ul>
+
+    <script>
+        // Retrieve and log the form
+        const form = document.getElementById("user-form");
+        console.log(form);
+
+        // Retrieve inputs by id and log them
+        const firstNameInput = document.getElementById("fname");
+        const lastNameInput = document.getElementById("lname");
+        console.log(firstNameInput, lastNameInput);
+
+        // Retrieve inputs by name attribute and log them
+        const firstNameByName = document.getElementsByName("firstname")[0];
+        const lastNameByName = document.getElementsByName("lastname")[0];
+        console.log(firstNameByName, lastNameByName);
+
+        // Handle form submission
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent page refresh
+
+            const firstName = firstNameInput.value.trim();
+            const lastName = lastNameInput.value.trim();
+
+            if (firstName === "" || lastName === "") {
+                alert("Please fill in both fields.");
+                return;
+            }
+
+            // Select the <ul> element
+            const ul = document.querySelector(".usersAnswer");
+            ul.innerHTML = ""; // Clear previous entries
+
+            // Create and append <li> elements
+            const firstNameLi = document.createElement("li");
+            firstNameLi.textContent = firstName;
+            ul.appendChild(firstNameLi);
+
+            const lastNameLi = document.createElement("li");
+            lastNameLi.textContent = lastName;
+            ul.appendChild(lastNameLi);
+        });
+    </script>
+
+</body>
+</html>

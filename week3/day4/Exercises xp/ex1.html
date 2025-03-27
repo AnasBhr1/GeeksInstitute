@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+    <style>
+        .fade {
+            animation: fadeOut 1s forwards;
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <article>
+        <h1 id="main-title">Some Facts</h1>
+        <h2 id="chocolate-title">The Chocolate</h2>
+        <h3 id="chocolate-history">History of the chocolate</h3>
+        <p>Chocolate is made from tropical Theobroma cacao tree seeds. Its earliest use dates back to the Olmec civilization in Mesoamerica.</p>
+        <p id="second-paragraph">After the European discovery of the Americas, chocolate became very popular in the wider world, and its demand exploded.</p>
+        <p>Chocolate has since become a popular food product that millions enjoy every day, thanks to its unique, rich, and sweet taste.</p>
+        <p id="remove-paragraph">But what effect does eating chocolate have on our health?</p>
+    </article>
+
+    <button id="bold-btn">Make Text Bold</button>
+
+    <script>
+        // Retrieve the h1 and log it
+        const h1Element = document.getElementById("main-title");
+        console.log(h1Element);
+
+        // Remove the last paragraph in the <article>
+        const lastParagraph = document.getElementById("remove-paragraph");
+        lastParagraph.remove();
+
+        // Change background color of h2 when clicked
+        document.getElementById("chocolate-title").addEventListener("click", function() {
+            this.style.backgroundColor = "red";
+        });
+
+        // Hide h3 when clicked
+        document.getElementById("chocolate-history").addEventListener("click", function() {
+            this.style.display = "none";
+        });
+
+        // Make all paragraphs bold when button is clicked
+        document.getElementById("bold-btn").addEventListener("click", function() {
+            const paragraphs = document.querySelectorAll("article p");
+            paragraphs.forEach(p => p.style.fontWeight = "bold");
+        });
+
+        // BONUS: Change h1 font size randomly on hover
+        h1Element.addEventListener("mouseover", function() {
+            const randomSize = Math.floor(Math.random() * 100) + "px";
+            this.style.fontSize = randomSize;
+        });
+
+        // BONUS: Fade out second paragraph on hover
+        document.getElementById("second-paragraph").addEventListener("mouseover", function() {
+            this.classList.add("fade");
+        });
+    </script>
+
+</body>
+</html>
