@@ -1,0 +1,46 @@
+/* Apply the styles you provided */
+
+body {
+    background-color: black;
+    background-image: url(https://i.giphy.com/media/TxVVB6PfWMjE4/200.webp);
+    font-family: 'Helvetica Neue';
+    color: yellow;
+    text-align: center;
+}
+
+/* Other styles */
+h1 {
+    color: #ffcc00;
+}
+
+button {
+    background-color: #ffcc00;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 20px 0;
+}
+
+button:hover {
+    background-color: #e6b800;
+}
+
+#loading {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+#characterInfo {
+    margin-top: 30px;
+}
+
+#characterInfo h2 {
+    font-size: 28px;
+    color: #ffcc00;
+}
+
+#characterInfo p {
+    font-size: 18px;
+}
