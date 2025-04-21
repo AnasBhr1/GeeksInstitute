@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emoji Guessing Game</title>
+</head>
+<body>
+    <h1>Emoji Guessing Game</h1>
+    <div id="emoji"></div>
+    <form id="guess-form"></form>
+    <p id="feedback"></p>
+    <p>Score: <span id="score">0</span></p>
+
+    <script>
+        async function loadEmoji() {
+            const res = await fetch('/emoji');
+            const data = await res.json();
+
+            document.getElementById('emoji').innerText = data.emoji;
+
+            const form = document.getElementById('guess-form');
+            form.innerHTML = '';
+            data.options.forEach(option => {
+                const btn = document.createElement('button');
+                btn.type = 'submit';
+                btn.textContent = option;
+                btn.onclick = async (e) => {
+                    e.preventDefault();
+                    const guessRes = await fetch('/guess', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ guess: option, answer: data.answer })
+                    });
+                    const result = await guessRes.json();
+                    document.getElementById('feedback').textContent = result.correct ? "Correct!" : "Wrong!";
+                    document.getElementById('score').textContent = result.score;
+                    setTimeout(loadEmoji, 1000);
+                };
+                form.appendChild(btn);
+            });
+        }
+
+        loadEmoji();
+    </script>
+</body>
+</html>
