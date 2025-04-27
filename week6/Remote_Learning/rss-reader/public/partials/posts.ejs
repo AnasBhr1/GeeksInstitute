@@ -1,0 +1,16 @@
+<div class="container mt-4">
+    <% if (posts.length === 0) { %>
+      <p>No posts found.</p>
+    <% } else { %>
+      <% posts.forEach(post => { %>
+        <div class="post">
+          <h4><a href="<%= post.link %>" target="_blank"><%= post.title %></a></h4>
+          <p><strong>Date:</strong> <%= post.pubDate %></p>
+          <% if (post.creator) { %><p><strong>Creator:</strong> <%= post.creator %></p><% } %>
+          <% if (post.categories) { %><p><strong>Category:</strong> <%= post.categories.join(', ') %></p><% } %>
+          <div><%= post.contentSnippet %></div>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+  
