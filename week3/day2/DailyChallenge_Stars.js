@@ -1,4 +1,4 @@
-// one loop 
+// / one loop 
 let pattern = "";
 for (let i = 1; i <= 6; i++) {
   pattern += "* ";
